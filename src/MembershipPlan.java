@@ -1,19 +1,19 @@
 abstract class MembershipPlan implements Billable {
-    private int planCode;
+    private String planCode;
     private String clientName;
     private int months;
-    private Double baseMonthlyFee;
-    private boolean autoRenew;
+    public Double baseMonthlyFee;
+    public boolean autoRenew;
     private static final double VAT_RATE = 0.23;
 
-    public MembershipPlan(int planCode, String clientName, int months, Double baseMonthlyFee, boolean autoRenew) {
+    public MembershipPlan(String planCode, String clientName, int months, Double baseMonthlyFee, boolean autoRenew) {
         this.planCode = planCode;
         this.clientName = clientName;
         this.baseMonthlyFee = baseMonthlyFee;
         this.autoRenew = this.autoRenew;
         this.months = months;
     }
-    public int getPlanCode() {
+    public String getPlanCode() {
         return planCode;
     }
     public String getClientName() {
@@ -37,7 +37,7 @@ abstract class MembershipPlan implements Billable {
 
      @Override
    public double calculateMonthlyGrossPrice(){
-        return baseMonthlyFee * (1 + VAT_RATE);
+        return calculateTotalNetPrice() * 1.23;
     }
 
     public double calculateTotalNetPrice(){
@@ -50,9 +50,9 @@ abstract class MembershipPlan implements Billable {
 
         System.out.println("======= PODSUMOWANIE PLANU =======");
         System.out.println("Klient:         " + clientName);
-        System.out.println("Typ planu:      " + planCode);
+        System.out.println("Typ planu:      " + getPlanType());
         System.out.println("Czas trwania:   " + months + " mies.");
-        System.out.println("Plan odnawiajacy sie automatycznie" + autoRenew);
+        System.out.println("Plan odnawiajacy sie automatycznie " + autoRenew);
         System.out.println("----------------------------------");
         System.out.printf("Cena netto/mies:  %.2f zł\n", calculateMonthlyNetPrice());
         System.out.printf("Cena brutto/mies: %.2f zł\n", calculateMonthlyGrossPrice());
@@ -62,7 +62,7 @@ abstract class MembershipPlan implements Billable {
 
     @Override
     public String toString() {
-        return String.format("planCode: %s | clientName: %s | months: %.2f | baseMonthlyFee: %.2f | autoRenew: %s ", planCode, clientName, months, baseMonthlyFee, autoRenew);
+        return String.format("planCode: %s | clientName: %s | months: %d | baseMonthlyFee: %.2f | autoRenew: %b ", planCode, clientName, months, baseMonthlyFee, autoRenew);
     }
 
     public interface Billable {

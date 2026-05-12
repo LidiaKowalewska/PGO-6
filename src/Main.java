@@ -1,8 +1,8 @@
 public class Main {
- /*   public static void main(String[] args) {
+public static void main(String[] args) {
         MembershipPlan[] plans = new MembershipPlan[] {
-                new GymMembershipPlan("GYM-100", "Anna Kowalska", 3, 99.0, true, 12, false),
-                new GymMembershipPlan("GYM-101", "Piotr Nowak", 6, 109.0, false, 18, true),
+                new GymMembershipPlan(true, "GYM-100", "Anna Kowalska", 5, 99.0, 12, false),
+                new GymMembershipPlan(false, "GYM-101", "Piotr Nowak", 6, 55.0, 18, true),
                 new PersonalTrainingPlan("PT-200", "Marta Zielinska", 4, 140.0, true, 4, 2, false),
                 new PersonalTrainingPlan("PT-201", "Jan Malinowski", 6, 150.0, false, 8, 3, true),
                 new OnlineCoachingPlan("ONL-300", "Karolina Wisniewska", 6, 89.0, true, 2, true, true),
@@ -45,5 +45,7 @@ public class Main {
         Billable billable = new OnlineCoachingPlan("ONL-999", "Test Client", 2, 70.0, true, 1, false, true);
         System.out.println("Billable net: " + billable.calculateMonthlyNetPrice());
         System.out.println("Billable gross: " + billable.calculateMonthlyGrossPrice());
-    }*/
+    }
+
+
 }

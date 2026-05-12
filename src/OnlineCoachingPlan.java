@@ -12,7 +12,7 @@ class OnlineCoachingPlan extends MembershipPlan implements RemoteAccess{
                               boolean mealPlanIncluded,
                               boolean recordedLibraryAccess) {
 
-        super(Integer.parseInt(planCode), clientName, months, baseMonthlyFee, autoRenew);
+        super(clientName, planCode, months, baseMonthlyFee, autoRenew);
 
         this.videoConsultations = videoConsultations;
         this.mealPlanIncluded = mealPlanIncluded;

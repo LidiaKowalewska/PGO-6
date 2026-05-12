@@ -12,7 +12,7 @@ public class PersonalTrainingPlan extends MembershipPlan {
                                 int trainerLevel,
                                 boolean dietConsultationIncluded) {
 
-        super(Integer.parseInt(planCode), clientName, months, baseMonthlyFee, autoRenew);
+        super(clientName, planCode, months, baseMonthlyFee, autoRenew);
 
         this.sessionsPerMonth = sessionsPerMonth;
         this.trainerLevel = trainerLevel;
