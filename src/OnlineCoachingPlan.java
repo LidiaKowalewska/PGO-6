@@ -1,2 +1,2 @@
-public class OnlineCoachingPlan {
+public class OnlineCoachingPlan extends MembershipPlan{
 }

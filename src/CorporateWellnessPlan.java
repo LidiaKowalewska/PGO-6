@@ -1,2 +1,2 @@
-public class CorporateWellnessPlan {
+public class CorporateWellnessPlan extends MembershipPlan {
 }

@@ -1,4 +1,4 @@
-public abstract class MembershipPlan {
+abstract class MembershipPlan implements Billable {
     private int planCode;
     private String clientName;
     private int months;
@@ -10,7 +10,7 @@ public abstract class MembershipPlan {
         this.planCode = planCode;
         this.clientName = clientName;
         this.baseMonthlyFee = baseMonthlyFee;
-        this.autoRenew = false;
+        this.autoRenew = autoRenew;
         this.months = months;
     }
     public int getPlanCode() {
@@ -32,13 +32,15 @@ public abstract class MembershipPlan {
 
     public abstract String getPlanType();
 
-   public abstract double calculateMonthlyNetPrice();
+   @Override
+    public abstract double calculateMonthlyNetPrice();
 
-     private double calculateMonthlyGrossPrice(){
+     @Override
+   public double calculateMonthlyGrossPrice(){
         return baseMonthlyFee * (1 + VAT_RATE);
     }
 
-    private double calculateTotalNetPrice(){
+    public double calculateTotalNetPrice(){
         return baseMonthlyFee * months;
     }
 

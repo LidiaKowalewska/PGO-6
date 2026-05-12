@@ -1,2 +1,3 @@
-public class GymMembershipPlan {
+public class GymMembershipPlan extends MembershipPlan {
+
 }
