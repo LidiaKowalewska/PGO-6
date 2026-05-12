@@ -6,11 +6,11 @@ abstract class MembershipPlan implements Billable {
     private boolean autoRenew;
     private static final double VAT_RATE = 0.23;
 
-    public MembershipPlan(int planCode, String clientName,int months, Double baseMonthlyFee) {
+    public MembershipPlan(int planCode, String clientName, int months, Double baseMonthlyFee, boolean autoRenew) {
         this.planCode = planCode;
         this.clientName = clientName;
         this.baseMonthlyFee = baseMonthlyFee;
-        this.autoRenew = autoRenew;
+        this.autoRenew = this.autoRenew;
         this.months = months;
     }
     public int getPlanCode() {
